@@ -1,6 +1,6 @@
 {
-  "name": "devdacticQRCodes",
-  "app_id": "3c61d8ab",
+  "name": "Gopage",
+  "app_id": "bc5ca6eb",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
