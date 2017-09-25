@@ -82,7 +82,7 @@
     <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-console" spec="^1.0.5" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
-    <plugin name="cordova-plugin-facebook4" source="npm" spec="^1.9.1">
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="751774944994483" />
         <variable name="APP_NAME" value="GoPage" />
     </plugin>
@@ -96,8 +96,6 @@
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="phonegap-plugin-barcodescanner" spec="^6.0.8" />
     <plugin name="cordova-android-support-gradle-release" spec="^1.1.1">
-        <variable name="ANDROID_SUPPORT_VERSION" value="15" />
+        <variable name="ANDROID_SUPPORT_VERSION" value="25.+" />
     </plugin>
-    <gap:plugin name="cordova-plugin-admobpro" source="npm" spec="2.28.3" />
-    <gap:plugin name="cordova-plugin-admob-facebook" source="npm" spec="1.0.3" />
 </widget>
