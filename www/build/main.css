@@ -25207,11 +25207,6 @@ ion-navbar.toolbar {
   font-style: normal;
 }
 
-.transparent-body {
-  background: none transparent !important;
-  opacity: 0 !important;
-}
-
 @font-face {
   font-family: 'Raleway Medium';
   src: url("../assets/fonts/raleway-medium.eot");

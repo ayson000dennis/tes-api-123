@@ -23,8 +23,8 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { Camera } from '@ionic-native/camera';
-import { QRScanner } from '@ionic-native/qr-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 @NgModule({
   declarations: [
     MyApp,
@@ -45,7 +45,8 @@ import { QRScanner } from '@ionic-native/qr-scanner';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,8 +72,7 @@ import { QRScanner } from '@ionic-native/qr-scanner';
     ScreenOrientation,
     Facebook,
     GooglePlus,
-    QRScanner,
-    Camera
+    BarcodeScanner
   ]
 })
 export class AppModule {}
