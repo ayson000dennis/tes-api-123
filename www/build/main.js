@@ -997,6 +997,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 var UserLoyaltyPage = UserLoyaltyPage_1 = (function () {
     function UserLoyaltyPage(navCtrl, platform, qrScanner) {
+        var _this = this;
         this.navCtrl = navCtrl;
         this.platform = platform;
         this.qrScanner = qrScanner;
@@ -1011,39 +1012,13 @@ var UserLoyaltyPage = UserLoyaltyPage_1 = (function () {
                 }
             }, _interval = setInterval(addActive, 1);
         });
-        this.pages = [
-            { title: 'loyalty', component: UserLoyaltyPage_1 },
-            { title: 'favorites', component: __WEBPACK_IMPORTED_MODULE_3__page_user_favorites_page_user_favorites__["a" /* UserFavoritesPage */] },
-            { title: 'find deals', component: __WEBPACK_IMPORTED_MODULE_4__page_user_deals_page_user_deals__["a" /* UserDealsPage */] },
-            { title: 'card', component: __WEBPACK_IMPORTED_MODULE_5__page_user_card_page_user_card__["a" /* UserCardPage */] }
-        ];
-    }
-    UserLoyaltyPage.prototype.goHome = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__page_login_page_login__["a" /* LoginPage */], {}, {
-            animate: true,
-            direction: 'back'
-        });
-    };
-    UserLoyaltyPage.prototype.openPage = function (page) {
-        this.navCtrl.setRoot(page.component);
-    };
-    //  createCode() {
-    //   this.createdCode = this.qrData;
-    // }
-    UserLoyaltyPage.prototype.scanCode = function () {
-        var _this = this;
-        //   this.barcodeScanner.scan().then(barcodeData => {
-        //     this.scannedCode = barcodeData.text;
-        //   }, (err) => {
-        //       console.log('Error: ', err);
-        //   });
         this.qrScanner.prepare()
             .then(function (status) {
             if (status.authorized) {
                 // camera permission was granted
                 // start scanning
                 var scanSub_1 = _this.qrScanner.scan().subscribe(function (text) {
-                    _this.createdCode = text;
+                    // this.createdCode = text;
                     _this.qrScanner.hide(); // hide camera preview
                     window.document.querySelector('ion-app').classList.add('transparent-body');
                     scanSub_1.unsubscribe(); // stop scanning
@@ -1062,6 +1037,21 @@ var UserLoyaltyPage = UserLoyaltyPage_1 = (function () {
             }
         })
             .catch(function (e) { return console.log('Error is', e); });
+        this.pages = [
+            { title: 'loyalty', component: UserLoyaltyPage_1 },
+            { title: 'favorites', component: __WEBPACK_IMPORTED_MODULE_3__page_user_favorites_page_user_favorites__["a" /* UserFavoritesPage */] },
+            { title: 'find deals', component: __WEBPACK_IMPORTED_MODULE_4__page_user_deals_page_user_deals__["a" /* UserDealsPage */] },
+            { title: 'card', component: __WEBPACK_IMPORTED_MODULE_5__page_user_card_page_user_card__["a" /* UserCardPage */] }
+        ];
+    }
+    UserLoyaltyPage.prototype.goHome = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__page_login_page_login__["a" /* LoginPage */], {}, {
+            animate: true,
+            direction: 'back'
+        });
+    };
+    UserLoyaltyPage.prototype.openPage = function (page) {
+        this.navCtrl.setRoot(page.component);
     };
     return UserLoyaltyPage;
 }());
@@ -1069,11 +1059,10 @@ UserLoyaltyPage = UserLoyaltyPage_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-user-loyalty',template:/*ion-inline-start:"/home/fullstack/Documents/node/gopage/test/src/pages/page-user-loyalty/page-user-loyalty.html"*/'<ion-header>\n  <ion-navbar>\n    <img class="header-logo" src="assets/images/logo.png" alt="">\n    <div class="profile">\n      <img class="profile-img" src="assets/images/img-profile.png" alt="">\n      <span class="fa fa-angle-down"></span>\n    </div>\n    <span class="inbox fa fa-envelope-o"><span class="count-msg">1</span></span>\n  </ion-navbar>\n\n  <ion-list>\n    <button ion-item *ngFor="let p of pages" (click)="openPage(p)">\n      <span class="label-{{p.title}}">{{p.title}}</span>\n    </button>\n  </ion-list>\n</ion-header>\n\n<ion-content padding>\n<!-- <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button> -->\n  <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>\n <!--  <ion-item>\n    <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData">\n    </ion-input>\n  </ion-item>\n -->  <!-- <ion-card *ngIf="createdCode">\n    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>\n    <ion-card-content>\n      <p>Value: {{ createdCode }}</p>\n    </ion-card-content>\n  </ion-card> -->\n  <ion-card *ngIf="scannedCode">\n    <ion-card-content>\n      Result from Scan: {{ scannedCode }}\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/fullstack/Documents/node/gopage/test/src/pages/page-user-loyalty/page-user-loyalty.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_qr_scanner__["a" /* QRScanner */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_qr_scanner__["a" /* QRScanner */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_qr_scanner__["a" /* QRScanner */]) === "function" && _c || Object])
 ], UserLoyaltyPage);
 
-var UserLoyaltyPage_1;
+var UserLoyaltyPage_1, _a, _b, _c;
 //# sourceMappingURL=page-user-loyalty.js.map
 
 /***/ }),

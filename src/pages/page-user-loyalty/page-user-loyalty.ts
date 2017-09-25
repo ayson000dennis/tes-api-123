@@ -30,35 +30,7 @@ export class UserLoyaltyPage {
       },
         _interval = setInterval(addActive, 1);
     });
-
-    this.pages = [
-      { title: 'loyalty', component: UserLoyaltyPage },
-      { title: 'favorites', component: UserFavoritesPage },
-      { title: 'find deals', component: UserDealsPage },
-      { title: 'card', component: UserCardPage }
-    ];
-  }
-
-  goHome() {
-    this.navCtrl.setRoot(LoginPage, {}, {
-      animate: true,
-      direction: 'back'
-    });
-  }
-
-  openPage(page) {
-    this.navCtrl.setRoot(page.component);
-  }
-  //  createCode() {
-  //   this.createdCode = this.qrData;
-  // }
-  scanCode() {
-  //   this.barcodeScanner.scan().then(barcodeData => {
-  //     this.scannedCode = barcodeData.text;
-  //   }, (err) => {
-  //       console.log('Error: ', err);
-  //   });
-  this.qrScanner.prepare()
+    this.qrScanner.prepare()
   .then((status: QRScannerStatus) => {
      if (status.authorized) {
        // camera permission was granted
@@ -66,7 +38,7 @@ export class UserLoyaltyPage {
 
        // start scanning
        let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-        this.createdCode = text;
+        // this.createdCode = text;
 
          this.qrScanner.hide(); // hide camera preview
          window.document.querySelector('ion-app').classList.add('transparent-body');
@@ -87,5 +59,23 @@ export class UserLoyaltyPage {
      }
   })
   .catch((e: any) => console.log('Error is', e));
+    this.pages = [
+      { title: 'loyalty', component: UserLoyaltyPage },
+      { title: 'favorites', component: UserFavoritesPage },
+      { title: 'find deals', component: UserDealsPage },
+      { title: 'card', component: UserCardPage }
+    ];
   }
+
+  goHome() {
+    this.navCtrl.setRoot(LoginPage, {}, {
+      animate: true,
+      direction: 'back'
+    });
+  }
+
+  openPage(page) {
+    this.navCtrl.setRoot(page.component);
+  }
+   
 }
