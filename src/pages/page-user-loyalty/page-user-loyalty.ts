@@ -66,9 +66,10 @@ export class UserLoyaltyPage {
 
        // start scanning
        let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-         console.log('Scanned something', text);
+        this.createdCode = text;
 
          this.qrScanner.hide(); // hide camera preview
+         window.document.querySelector('ion-app').classList.add('transparent-body');
          scanSub.unsubscribe(); // stop scanning
        });
 
