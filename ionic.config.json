@@ -1,0 +1,8 @@
+{
+  "name": "Gopage",
+  "app_id": "bc5ca6eb",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
