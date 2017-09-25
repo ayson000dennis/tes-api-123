@@ -1043,8 +1043,9 @@ var UserLoyaltyPage = UserLoyaltyPage_1 = (function () {
                 // camera permission was granted
                 // start scanning
                 var scanSub_1 = _this.qrScanner.scan().subscribe(function (text) {
-                    console.log('Scanned something', text);
+                    _this.createdCode = text;
                     _this.qrScanner.hide(); // hide camera preview
+                    window.document.querySelector('ion-app').classList.add('transparent-body');
                     scanSub_1.unsubscribe(); // stop scanning
                 });
                 // show camera preview
