@@ -40,14 +40,10 @@ export class UserScannerPage {
   }
 
   ionViewWillEnter() {
-    // console.log(this.storage.get('user'))
-    this.user = this.navParams.get('user')
-    this.hasData = true
-    console.log(this.user)
-    // this.storage.get('user').then(user => {
-    //   this.user = user;
-    //   this.hasData = true;
-    // });
+    this.storage.get('user').then(user => {
+      this.user = user;
+      this.hasData = true;
+    });
   }
 
   SubmitNumber() {
@@ -61,11 +57,11 @@ export class UserScannerPage {
         $('input[name="number"]').removeClass('has-error').siblings('.text-validate').text('');
         $('.btn-orange[type="submit"]').append('<span class="fa fa-spinner fa-spin"></span>');
 
-        // this.storage.get('user').then(user => {
-          // this.user = user;
-          this.api.Business.checker(this.phone, this.user._id, this.user.account_type).then(business => {
+        this.storage.get('user').then(user => {
+          this.user = user;
+          this.api.Business.checker(this.phone, user._id, user.account_type).then(business => {
             $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
-            this.navCtrl.setRoot(UserDealsPage, {business_id: this.user.shop_id[0]}, {
+            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0]}, {
               animate: true,
               direction: 'forward'
             });
@@ -80,7 +76,7 @@ export class UserScannerPage {
               });
             }
           });
-        // });
+        });
       } else {
         $('input[name="number"]').addClass('has-error').siblings('.text-validate').text('Mobile number is invalid.');
       }
