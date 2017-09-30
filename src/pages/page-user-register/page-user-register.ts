@@ -31,6 +31,16 @@ export class UserRegisterPage {
 
       this.phone = navParams.get('phone');
   }
+   ionViewWillEnter() {
+    // console.log(this.storage.get('user'))
+    this.user = this.navParams.get('user')
+    this.hasData = true
+    // console.log(this.user)
+    // this.storage.get('user').then(user => {
+    //   this.user = user;
+    //   this.hasData = true;
+    // });
+  }
 
   goScanner() {
     this.navCtrl.setRoot(UserScannerPage, {}, {
@@ -48,11 +58,11 @@ export class UserRegisterPage {
       if (nameRegEx.test(getFName) == true && nameRegEx.test(getLName) == true) {
         $('form input').removeClass('has-error').siblings('.text-validate').text('');
         $('.btn-green[type="submit"]').append('<span class="fa fa-spinner fa-spin"></span>');
-        this.storage.get('user').then(user => {
-          this.user = user;
-          this.api.Business.register(this.phone, user._id, user.shop_id[0],getFName,getLName).then(newUser => {
+        /*this.storage.get('user').then(user => {
+          this.user = user;*/
+          this.api.Business.register(this.phone, this.user._id, this.user.shop_id[0],getFName,getLName).then(newUser => {
             $('.btn-green[type="submit"]').find('.fa-spinner').remove();
-            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0]}, {
+            this.navCtrl.setRoot(UserDealsPage, {business_id: this.user.shop_id[0]}, {
               animate: true,
               direction: 'forward'
             });
@@ -60,7 +70,7 @@ export class UserRegisterPage {
             $('.btn-green[type="submit"]').find('.fa-spinner').remove();
             console.log(err);
           });
-        });
+        // });
       } else {
         $('form input').each(function () {
           var thisInput = $(this),

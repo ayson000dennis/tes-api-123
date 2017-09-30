@@ -40,28 +40,33 @@ export class UserScannerPage {
   }
 
   ionViewWillEnter() {
-    this.storage.get('user').then(user => {
-      this.user = user;
-      this.hasData = true;
-    });
+    // console.log(this.storage.get('user'))
+    this.user = this.navParams.get('user')
+    this.hasData = true
+    // console.log(this.user)
+    // this.storage.get('user').then(user => {
+    //   this.user = user;
+    //   this.hasData = true;
+    // });
   }
 
   SubmitNumber() {
     var mobileRegex = /^[0-9]{3,14}$/;
 
     if (this.phone) {
-      console.log(mobileRegex.test(this.phone));
+      // console.log(mobileRegex.test(this.phone));
       if (mobileRegex.test(this.phone) == true) {
         this.phone = "+" + this.phone;
 
         $('input[name="number"]').removeClass('has-error').siblings('.text-validate').text('');
         $('.btn-orange[type="submit"]').append('<span class="fa fa-spinner fa-spin"></span>');
 
-        this.storage.get('user').then(user => {
-          this.user = user;
-          this.api.Business.checker(this.phone, user._id, user.account_type).then(business => {
+        // this.storage.get('user').then(user => {
+          // this.user = user;
+          this.api.Business.checker(this.phone, this.user._id, this.user.account_type).then(business => {
+          console.log(this.user.shop_id);
             $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
-            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0]}, {
+            this.navCtrl.setRoot(UserDealsPage, {business_id: this.user.shop_id[0],user_id : business.customer.user_id[0]}, {
               animate: true,
               direction: 'forward'
             });
@@ -70,13 +75,13 @@ export class UserScannerPage {
             var exist = JSON.parse(err['_body']).exist;
 
             if (exist == 0) {
-              this.navCtrl.setRoot(UserRegisterPage, {phone : this.phone}, {
+              this.navCtrl.setRoot(UserRegisterPage, {phone : this.phone, user: this.user}, {
                 animate: true,
                 direction: 'forward'
               });
             }
           });
-        });
+        // });
       } else {
         $('input[name="number"]').addClass('has-error').siblings('.text-validate').text('Mobile number is invalid.');
       }

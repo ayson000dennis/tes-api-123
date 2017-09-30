@@ -124,9 +124,9 @@ export class LoginPage {
   }
   getUser(token){
    this.api.Users.user(token.user_id).then(user =>{
-      this.storage.set('user', user);
-
-       this.navCtrl.setRoot(UserScannerPage, {}, {
+      // this.storage.set('user', user);
+      //   console.log(this.storage.ge('user'))
+       this.navCtrl.setRoot(UserScannerPage, {user : user}, {
             animate: true,
             direction: 'forward'
           });
