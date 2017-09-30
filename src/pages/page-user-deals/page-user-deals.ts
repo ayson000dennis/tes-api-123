@@ -36,7 +36,6 @@ export class UserDealsPage {
   }
 
   ionViewWillEnter(){
-    console.log(this.business_id)
     this.api.Deals.deals_list(this.business_id).then(users => {
       this.dealsList = users;
       console.log(this.dealsList)
