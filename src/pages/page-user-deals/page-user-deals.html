@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <img class="header-logo" src="assets/images/logo.png" alt="">
     <div class="profile">
@@ -13,48 +13,28 @@
       <span class="label-{{p.title}}">{{p.title}}</span>
     </button>
   </ion-list>
-</ion-header>
+</ion-header> -->
 
 <ion-content padding>
-  <div class="holder-map">
-    <img src="assets/images/img-map.jpg" alt="">
+  <p class="title" (click)="goScanner()">
+    <img class="btn-nav" src="assets/icon/icon-back.png" alt="" />
+    Back to Scanner
+  </p>
+
+  <div class="holder-list" *ngIf="hasData">
+    <div class="holder-deal" *ngFor="let deals of dealsList">
+      <div class="deal-info">
+        <p class="deal-title">
+          {{deals.template}}
+        </p>
+        <p class="deal-stamp">
+          1 stamp
+        </p>
+        <p class="deal-expire">
+          Expires {{dateFormat(deals.end_date)}}
+        </p>
+      </div>
+      <button class="btn btn-green">Redeem</button>
+    </div>
   </div>
-
-  <form class="form-search">
-    <input type="text" name="search" placeholder="Find local deals">
-    <button class="fa fa-search"></button>
-  </form>
-
-  <ul class="holder-deals">
-    <li class="deal">
-      <img class="deal-img" src="assets/images/img-deal1.jpg" alt="">
-      <span class="deal-text">
-        <span class="deal-title">HOLIDAY 20 - Get 20&#37; OFF on orders over &#36;90</span>
-        <span class="deal-shop">NowTheGlasses</span>
-        <span class="deal-address">2928 Franville Street, Vancouver</span>
-      </span>
-      <span class="deal-travel-time" (click)="goDetails()">34 mi</span>
-      <span class="fa fa-angle-right deal-more-details" (click)="goDetails()"></span>
-    </li>
-    <li class="deal">
-      <img class="deal-img" src="assets/images/img-deal2.jpg" alt="">
-      <span class="deal-text">
-        <span class="deal-title">BUY 1 TAKE 1</span>
-        <span class="deal-shop">Starbucks</span>
-        <span class="deal-address">5140 Yonge Street, Suite 1205, Vancouver</span>
-      </span>
-      <span class="deal-travel-time" (click)="goDetails()">41 mi</span>
-      <span class="fa fa-angle-right deal-more-details" (click)="goDetails()"></span>
-    </li>
-    <li class="deal">
-      <img class="deal-img" src="assets/images/img-deal3.jpg" alt="">
-      <span class="deal-text">
-        <span class="deal-title">PAY DAY DEAL - Buy 1 dozen for only &#36;3.89</span>
-        <span class="deal-shop">Krispy Kreme</span>
-        <span class="deal-address">88th &amp; Adresen Road, Vancouver</span>
-      </span>
-      <span class="deal-travel-time" (click)="goDetails()">50 mi</span>
-      <span class="fa fa-angle-right deal-more-details" (click)="goDetails()"></span>
-    </li>
-  </ul>
 </ion-content>

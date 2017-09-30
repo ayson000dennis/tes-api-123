@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { ApiService } from '../../service/api.service.component';
+import { Storage } from '@ionic/storage';
 
-import { LoginPage } from '../page-login/page-login';
-import { UserLoyaltyPage } from '../page-user-loyalty/page-user-loyalty';
-import { UserFavoritesPage } from '../page-user-favorites/page-user-favorites';
-import { UserCardPage } from '../page-user-card/page-user-card';
-import { UserDealsDetailsPage } from '../page-user-deals-details/page-user-deals-details';
+import { UserScannerPage } from '../page-user-scanner/page-user-scanner';
 
 import * as $ from "jquery";
+import  moment  from 'moment';
 
 @Component({
   selector: 'page-user-deals',
@@ -15,44 +14,48 @@ import * as $ from "jquery";
 })
 
 export class UserDealsPage {
-  pages: Array<{title: string, component: any}>;
+  user: string[];
+  business_id: any;
+  hasData: boolean = false;
+  dealsList: any;
 
-  constructor(public navCtrl: NavController,
-    public platform: Platform){
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private api:ApiService,
+    private storage: Storage){
 
-    platform.ready().then(() => {
-      var addActive = function() {
-        if ($('.label-find').length > 0) {
-          $('.label-find').addClass('active');
-          clearInterval(_interval);
-        }
-      },
-        _interval = setInterval(addActive, 1);
-    });
-
-    this.pages = [
-      { title: 'loyalty', component: UserLoyaltyPage },
-      { title: 'favorites', component: UserFavoritesPage },
-      { title: 'find deals', component: UserDealsPage },
-      { title: 'card', component: UserCardPage }
-    ];
+      this.business_id = navParams.get('business_id');
   }
 
-  goHome() {
-    this.navCtrl.setRoot(LoginPage, {}, {
+  goScanner() {
+    this.navCtrl.setRoot(UserScannerPage, {}, {
       animate: true,
       direction: 'back'
     });
   }
 
-  goDetails() {
-    this.navCtrl.setRoot(UserDealsDetailsPage, {}, {
-      animate: true,
-      direction: 'forward'
-    });
+  ionViewWillEnter(){
+    this.api.Deals.deals_list(this.business_id).then(users => {
+      this.dealsList = users;
+      console.log(this.dealsList)
+      this.hasData = true;
+    })
   }
 
-  openPage(page) {
-    this.navCtrl.setRoot(page.component);
+  dateFormat(value) {
+    var dateNow = moment(value),
+      format = dateNow.format('MMM/D/YYYY'),
+      newDateNow = new Date(value),
+      getYear = newDateNow.getFullYear();
+
+    format = format.replace("amt", "at");
+    format = format.replace("pmt", "at");
+
+    if (getYear == 1970) {
+      return '-'
+    } else {
+      return format;
+    }
   }
 }

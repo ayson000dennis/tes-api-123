@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform, NavController } from 'ionic-angular';
 
 import { LoginPage } from '../page-login/page-login';
-import { UserLoyaltyPage } from '../page-user-loyalty/page-user-loyalty';
+import { UserScannerPage } from '../page-user-scanner/page-user-scanner';
 import { UserFavoritesPage } from '../page-user-favorites/page-user-favorites';
 import { UserDealsPage } from '../page-user-deals/page-user-deals';
 
@@ -30,7 +30,7 @@ export class UserCardPage {
     });
 
     this.pages = [
-      { title: 'loyalty', component: UserLoyaltyPage },
+      { title: 'loyalty', component: UserScannerPage },
       { title: 'favorites', component: UserFavoritesPage },
       { title: 'find deals', component: UserDealsPage },
       { title: 'card', component: UserCardPage }

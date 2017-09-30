@@ -25225,12 +25225,13 @@ body ion-nav > * {
 
 body ion-nav ion-header + ion-content > .scroll-content {
   padding: 3vh 16px 0 !important;
-  background-color: #ebebeb;
+  background-color: #fff !important;
 }
 
 body ion-nav ion-navbar.toolbar {
   padding: 21px 15px 13px;
   height: 62px;
+  border-bottom: 1px solid #f9f9f9;
 }
 
 body ion-nav ion-navbar.toolbar .toolbar-background-ios {
@@ -25238,28 +25239,30 @@ body ion-nav ion-navbar.toolbar .toolbar-background-ios {
 }
 
 body ion-nav ion-navbar.toolbar .header-logo {
-  width: 110px;
+  width: 50px;
 }
 
 body ion-nav ion-navbar.toolbar .inbox {
   position: relative;
-  top: 4px;
+  top: 7px;
   float: right;
-  margin-right: 23px;
-  font-size: 25px;
-  color: #404040;
+  margin-right: 13px;
+}
+
+body ion-nav ion-navbar.toolbar .inbox img {
+  width: 27px;
 }
 
 body ion-nav ion-navbar.toolbar .inbox .count-msg {
   position: absolute;
-  top: -5px;
+  top: -8px;
   right: -10px;
   padding-top: 2px;
   width: 18px;
   height: 18px;
   overflow: hidden;
-  font-family: "Raleway Medium";
-  font-size: 11px;
+  font-family: 'Raleway Medium';
+  font-size: 10px;
   font-weight: 600;
   color: #fff;
   text-align: center;
@@ -25268,20 +25271,13 @@ body ion-nav ion-navbar.toolbar .inbox .count-msg {
   border-radius: 50%;
 }
 
-body ion-nav ion-navbar.toolbar .profile {
+body ion-nav ion-navbar.toolbar .holder-menu {
   float: right;
-}
-
-body ion-nav ion-navbar.toolbar .profile .profile-img {
-  border: 1px solid #404040;
-  border-radius: 50%;
-}
-
-body ion-nav ion-navbar.toolbar .profile .fa {
-  vertical-align: top;
-  font-size: 19px;
-  line-height: 1.7;
-  color: #404040;
+  padding: 7px 12px 5px;
+  font-family: 'Raleway Semibold';
+  font-size: 12px;
+  border: 1px solid #828282;
+  border-radius: 2px;
 }
 
 body ion-nav ion-list.list {
@@ -25383,6 +25379,7 @@ body .text-center {
 
 body .btn,
 body .btn-green,
+body .btn-orange,
 body .btn-green-out {
   -webkit-transition: .2s ease;
   transition: .2s ease;
@@ -25393,16 +25390,37 @@ body .btn-green-out {
 body .btn:active, body .btn:focus,
 body .btn-green:active,
 body .btn-green:focus,
+body .btn-orange:active,
+body .btn-orange:focus,
 body .btn-green-out:active,
 body .btn-green-out:focus {
   -webkit-box-shadow: inset 0 0 15px 1px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 15px 5px rgba(0, 0, 0, 0.3);
 }
 
+body .btn .fa-spin,
+body .btn-green .fa-spin,
+body .btn-orange .fa-spin,
+body .btn-green-out .fa-spin {
+  position: absolute !important;
+  left: initial !important;
+  margin-left: 5px;
+}
+
 body .btn-green {
+  padding: 15px;
+  width: 100%;
+  font-size: 16px;
   color: #fff;
   text-decoration: none;
   background-color: #a4c73a;
+  border-radius: 5px;
+}
+
+body .btn-orange {
+  color: #fff;
+  text-decoration: none;
+  background-color: #f59022;
   border-radius: 5px;
 }
 
@@ -25420,6 +25438,11 @@ body .btn-nav {
   padding: 10px;
   height: 45px;
   cursor: pointer;
+}
+
+body .btn-nav.to-right {
+  right: -10px;
+  left: initial;
 }
 
 body .btn {
@@ -25495,8 +25518,9 @@ body form label {
 }
 
 body form label ~ input,
-body form label ~ label {
-  margin-top: 15px;
+body form label ~ label,
+body form label ~ button {
+  margin-top: 15px !important;
 }
 
 body form label .btn-show {
@@ -25574,6 +25598,12 @@ body form input[type="password"] {
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+body hr.hr {
+  margin: 25px auto;
+  height: 1px;
+  background-color: #bbb;
 }
 
 body .holder-deals {
@@ -25682,11 +25712,6 @@ body .holder-map img {
   }
 }
 
-page-login .btn-nav {
-  right: -10px;
-  left: initial;
-}
-
 page-login form {
   padding-top: 6px;
 }
@@ -25697,10 +25722,61 @@ page-login .forgot-pass {
   cursor: pointer;
 }
 
+page-login .description a {
+  color: #f68f1f;
+  text-decoration: none;
+}
+
 @media (max-width: 575px) {
   page-login .forgot-pass {
     margin-top: 25px;
   }
+}
+
+page-menu .content-ios {
+  background-color: #424242;
+}
+
+page-menu .content-ios .btn-nav.to-right {
+  -webkit-filter: brightness(100);
+  -moz-filter: brightness(100);
+  -ms-filter: brightness(100);
+  -o-filter: brightness(100);
+  filter: brightness(100);
+}
+
+page-menu .content-ios .menu-list {
+  margin-top: 15px;
+}
+
+page-menu .content-ios .menu-list .item {
+  padding: 5px 0;
+  width: 100% !important;
+  text-align: left !important;
+  background-color: transparent;
+}
+
+page-menu .content-ios .menu-list .item .item-inner .label span {
+  font-family: 'Raleway Medium';
+  font-size: 24px;
+  letter-spacing: .5px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+page-menu .content-ios .divider {
+  width: 100%;
+  background-color: #fff;
+}
+
+page-menu .content-ios .logout {
+  display: block;
+  padding: 15px 0;
+  font-family: 'Raleway Medium';
+  font-size: 24px;
+  letter-spacing: .5px;
+  color: #fff;
+  text-decoration: none;
 }
 
 page-reset-pass form {
@@ -25769,15 +25845,29 @@ page-slider .scroll-content {
 }
 
 page-slider .logo {
+  display: block;
+  margin: 0 auto;
   margin-top: 2px;
   width: auto;
   height: 4.484vh;
 }
 
+page-slider .main-title {
+  font-family: "Raleway Medium";
+  font-size: 15px;
+  line-height: 1.5;
+  color: #818181;
+}
+
+page-slider .main-title br {
+  display: block !important;
+}
+
 page-slider .subtitle {
   margin: .5vh 0;
   font-family: "Raleway Medium";
-  font-size: 2.05vh;
+  font-size: 2.08vh;
+  line-height: 1.5;
   color: #818181;
 }
 
@@ -25789,14 +25879,19 @@ page-slider ion-slides {
   height: 80vh;
 }
 
-page-slider ion-slides ion-slide:nth-child(2) .slider-img {
-  margin: 14vh 0 6.2vh;
-  height: 42.8vh;
+page-slider ion-slides ion-slide .main-image {
+  margin-bottom: 40px;
+  max-width: 77%;
+  height: auto;
 }
 
-page-slider ion-slides ion-slide:nth-child(2) ~ ion-slide .slider-img {
-  margin: 5vh 0 5.3vh;
-  max-width: 71%;
+page-slider ion-slides ion-slide:first-child .main-title:last-child {
+  margin-top: 5px;
+}
+
+page-slider ion-slides ion-slide:nth-child(2) .slider-img, page-slider ion-slides ion-slide:nth-child(3) .slider-img, page-slider ion-slides ion-slide:nth-child(4) .slider-img {
+  margin: 8vh 0 4.8vh;
+  height: 42.8vh;
 }
 
 page-slider .slider-img {
@@ -25846,94 +25941,155 @@ page-user-card .btn-green {
   margin-top: 50px;
 }
 
-page-user-deals .form-search {
-  position: absolute;
-  top: 3vw;
-  right: 0;
-  left: 0;
-  width: 84vw;
+page-user-customers .title {
+  margin-bottom: 15px;
+  font-family: 'Raleway Medium';
+  font-size: 22px;
+  color: #444;
+  text-align: left;
 }
 
-page-user-deals .form-search input {
-  padding: 2.5vw 10vw 2.5vw 2.5vw;
-  font-size: 3.6vw;
-  line-height: 1.4;
-  color: #757575 !important;
-  background-color: #fff !important;
-  border: 1px solid #aaa !important;
-  border-radius: 5px;
-}
-
-page-user-deals .form-search .fa-search {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 3vw;
-  margin: auto;
-  font-size: 5vw;
-  color: #828282;
-  background-color: transparent;
-}
-
-page-user-deals .holder-deals {
-  margin-left: -16px;
-  width: 100vw;
-}
-
-page-user-deals .holder-deals .deal {
-  padding: 4vw 18px;
-}
-
-page-user-deals .holder-deals .deal ~ .deal {
-  margin-top: 0;
-  border-top: 1px solid #c8c8c8;
-}
-
-page-user-deals .holder-deals .deal .deal-img {
-  min-width: 0;
-  max-width: 18.5vw;
-}
-
-page-user-deals .holder-deals .deal .deal-text {
-  padding: 0 4vw;
-  width: initial;
-  max-width: 60vw;
-}
-
-page-user-deals .holder-deals .deal .deal-text .deal-title {
-  font-size: 3.4vw;
-}
-
-page-user-deals .holder-deals .deal .deal-text .deal-shop {
-  margin-top: 5px;
-  font-size: 3vw;
-  line-height: 1;
-}
-
-page-user-deals .holder-deals .deal .deal-text .deal-address {
-  font-family: "Raleway Medium";
-  font-size: 3vw;
-  line-height: 1.3;
-}
-
-page-user-deals .holder-deals .deal .deal-travel-time {
-  display: table-cell;
-  padding: 8px 0 0;
-  max-width: 10vw;
-  vertical-align: top;
-  font-size: 3vw;
-  color: #474747;
+page-user-customers .title .btn-green {
+  display: inline-block;
+  padding: 10px 10px 9px !important;
+  margin-left: 15px;
+  width: 105px;
   text-align: center;
 }
 
-page-user-deals .holder-deals .deal .deal-more-details {
-  display: table-cell;
-  padding-left: 2vw;
-  max-width: 11.5vw;
-  vertical-align: middle;
-  font-size: 6vw;
+page-user-customers .description {
+  font-family: 'Raleway Regular';
+  font-weight: 600;
+  color: #444;
+  text-align: left;
+}
+
+page-user-customers .description input[name="entry"] {
+  margin: 0 5px;
+  width: 22px;
+  text-align: center;
+}
+
+page-user-customers .holder-accordion {
+  position: relative;
+  overflow: hidden;
+}
+
+page-user-customers .holder-accordion.show .accordion-body {
+  padding: 7.5px 15px 15px;
+  max-height: 155px;
+}
+
+page-user-customers .holder-accordion .dropdown {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-family: 'Raleway Regular';
+  font-size: 13px;
+  line-height: 20px;
+  color: #f59120;
+}
+
+page-user-customers .holder-accordion .dropdown .fa {
+  margin-left: 3px;
+}
+
+page-user-customers .holder-accordion .accordion-header {
+  padding: 15px;
+  font-family: 'Raleway Regular';
+  font-size: 15px;
+  color: #a4c73a;
+  background-color: #fafafa;
+  border-radius: 2px;
+}
+
+page-user-customers .holder-accordion .accordion-body {
+  padding: 0 15px;
+  margin-top: 7.5px;
+  max-height: 0;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+page-user-customers .holder-accordion .accordion-body span {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+page-user-customers .holder-accordion .accordion-body span.list-label {
+  color: #7a7a7a;
+}
+
+page-user-customers .holder-accordion .accordion-body span.list-label ~ .list-label {
+  margin-top: 5px;
+}
+
+page-user-customers .holder-accordion .accordion-body span.list-data {
+  font-family: 'Raleway Semibold';
+  color: #444;
+}
+
+page-user-customers .holder-accordion .accordion-body span.list-data ~ .list-data {
+  margin-top: 5px;
+}
+
+page-user-deals .scroll-content {
+  padding: 30px 0 !important;
+}
+
+page-user-deals .title {
+  padding-left: 25px;
+  margin: 0 16px 30px;
+  text-align: left;
+}
+
+page-user-deals .holder-list .holder-deal {
+  position: relative;
+  padding: 20px 16px;
+  border-top: 1px solid #d7d7d7;
+}
+
+page-user-deals .holder-list .holder-deal:last-child {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+page-user-deals .holder-list .holder-deal .deal-info {
+  width: 65%;
+}
+
+page-user-deals .holder-list .holder-deal .deal-info p {
+  margin: 0;
+}
+
+page-user-deals .holder-list .holder-deal .deal-info .deal-title {
+  font-size: 18px;
+  line-height: 1;
   color: #474747;
+}
+
+page-user-deals .holder-list .holder-deal .deal-info .deal-stamp {
+  margin-top: 7px;
+  font-family: 'Raleway Regular';
+  font-size: 13px;
+  color: #f59120;
+}
+
+page-user-deals .holder-list .holder-deal .deal-info .deal-expire {
+  font-family: 'Raleway Regular';
+  font-size: 13px;
+  color: #474747;
+}
+
+page-user-deals .holder-list .holder-deal .btn-green {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  bottom: 0;
+  padding: 12px 10px 12px !important;
+  margin: auto;
+  width: 32%;
+  max-height: 40px;
 }
 
 page-user-deals-details .scroll-content {
@@ -26116,4 +26272,27 @@ page-user-favorites .description {
 
 page-user-favorites .btn-green {
   margin-top: 50px;
+}
+
+page-user-register .title {
+  padding-left: 25px;
+  text-align: left;
+}
+
+page-user-register form {
+  padding-top: 15px !important;
+}
+
+page-user-scanner ion-header + ion-content > div.scroll-content {
+  padding-top: 50px !important;
+}
+
+page-user-scanner .btn-green {
+  text-align: center;
+  border-radius: 2px;
+}
+
+page-user-scanner .btn-orange {
+  margin-top: 15px;
+  border-radius: 2px;
 }

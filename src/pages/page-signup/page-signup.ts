@@ -6,7 +6,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 
 import { SliderPage } from '../page-slider/page-slider';
 import { SignupSuccessPage } from '../page-signup-success/page-signup-success';
-import { UserLoyaltyPage } from '../page-user-loyalty/page-user-loyalty';
+import { UserScannerPage } from '../page-user-scanner/page-user-scanner';
 
 import * as $ from "jquery";
 import 'rxjs/add/operator/map';
@@ -50,7 +50,7 @@ export class SignupPage {
     this.fb.login(['email', 'public_profile']).then((res: FacebookLoginResponse) => {
       this.fb.api('me?fields=id,email', []).then(profile => {
         this.http.post(baseUrl + 'api/users/login',{email: profile['email'], is_social: '1', permission: '4'}).subscribe(res => {
-          this.navCtrl.setRoot(UserLoyaltyPage, {}, {
+          this.navCtrl.setRoot(UserScannerPage, {}, {
             animate: true,
             direction: 'forward'
           });
@@ -67,7 +67,7 @@ export class SignupPage {
     this.gp.login({})
       .then(res =>
         console.log(res));
-        this.navCtrl.setRoot(UserLoyaltyPage, {}, {
+        this.navCtrl.setRoot(UserScannerPage, {}, {
           animate: true,
           direction: 'forward'
         })

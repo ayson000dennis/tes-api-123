@@ -4,7 +4,8 @@ import { NavController } from 'ionic-angular';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { SliderPage } from '../pages/page-slider/page-slider';
-import { UserLoyaltyPage } from '../pages/page-user-loyalty/page-user-loyalty';
+import { UserScannerPage } from '../pages/page-user-scanner/page-user-scanner';
+import { UserDealsPage } from '../pages/page-user-deals/page-user-deals';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ export class MyApp {
   @ViewChild('nav') nav: NavController;
 
   // make SliderPage the root (or first) page
-  public rootPage: any = UserLoyaltyPage;
+  public rootPage: any = SliderPage;
+  // public rootPage: any = UserScannerPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -36,7 +38,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'LOYALTY', component: UserLoyaltyPage }
+      { title: 'Scanner', component: UserScannerPage }
     ];
   }
 

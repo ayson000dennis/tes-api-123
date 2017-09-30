@@ -12,8 +12,12 @@ import { ResetPassPage } from '../pages/page-reset-pass/page-reset-pass';
 import { ResetPassSuccessPage } from '../pages/page-reset-pass-success/page-reset-pass-success';
 import { SignupPage } from '../pages/page-signup/page-signup';
 import { SignupSuccessPage } from '../pages/page-signup-success/page-signup-success';
+import { MenuPage } from '../pages/page-menu/page-menu';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { UserLoyaltyPage } from '../pages/page-user-loyalty/page-user-loyalty';
+import { UserScannerPage } from '../pages/page-user-scanner/page-user-scanner';
+import { UserRegisterPage } from '../pages/page-user-register/page-user-register';
+import { UserCustomersPage } from '../pages/page-user-customers/page-user-customers';
+import { UserInboxPage } from '../pages/page-user-inbox/page-user-inbox';
 import { UserFavoritesPage } from '../pages/page-user-favorites/page-user-favorites';
 import { UserDealsPage } from '../pages/page-user-deals/page-user-deals';
 import { UserDealsDetailsPage } from '../pages/page-user-deals-details/page-user-deals-details';
@@ -25,6 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { ApiService } from '../service/api.service.component';
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -34,8 +41,12 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ResetPassSuccessPage,
     SignupPage,
     SignupSuccessPage,
+    MenuPage,
     ItemDetailsPage,
-    UserLoyaltyPage,
+    UserScannerPage,
+    UserRegisterPage,
+    UserCustomersPage,
+    UserInboxPage,
     UserFavoritesPage,
     UserDealsPage,
     UserDealsDetailsPage,
@@ -45,6 +56,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule,
     NgxQRCodeModule
   ],
@@ -57,8 +69,12 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ResetPassSuccessPage,
     SignupPage,
     SignupSuccessPage,
+    MenuPage,
     ItemDetailsPage,
-    UserLoyaltyPage,
+    UserScannerPage,
+    UserRegisterPage,
+    UserCustomersPage,
+    UserInboxPage,
     UserFavoritesPage,
     UserDealsPage,
     UserDealsDetailsPage,
@@ -72,7 +88,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ScreenOrientation,
     Facebook,
     GooglePlus,
-    BarcodeScanner
+    BarcodeScanner,
+    ApiService
   ]
 })
 export class AppModule {}
