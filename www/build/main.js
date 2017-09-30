@@ -413,12 +413,11 @@ var UserScannerPage = (function () {
         }
     };
     UserScannerPage.prototype.scanCode = function () {
-        var _this = this;
         this.barcodeScanner.scan().then(function (barcodeData) {
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__page_user_deals_page_user_deals__["a" /* UserDealsPage */], { user: _this.user }, {
-                animate: true,
-                direction: 'forward'
-            });
+            // this.navCtrl.setRoot(UserDealsPage, {user : this.user}, {
+            //      animate: true,
+            //      direction: 'forward'
+            //    });
         }, function (err) {
             console.log('Error: ', err);
         });

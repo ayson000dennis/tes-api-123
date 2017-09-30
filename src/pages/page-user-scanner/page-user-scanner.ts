@@ -87,10 +87,10 @@ export class UserScannerPage {
 
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
-      this.navCtrl.setRoot(UserDealsPage, {user : this.user}, {
-           animate: true,
-           direction: 'forward'
-         });
+      // this.navCtrl.setRoot(UserDealsPage, {user : this.user}, {
+      //      animate: true,
+      //      direction: 'forward'
+      //    });
     }, (err) => {
         console.log('Error: ', err);
     });
