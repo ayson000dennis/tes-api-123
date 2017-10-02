@@ -418,7 +418,7 @@ var UserScannerPage = (function () {
             // this.createdCode = barcodeData
             _this.createdCode = JSON.parse(barcodeData.text);
             _this.storage.get("user").then(function (user) {
-                _this.api.Business.scan_qr(_this.createdCode.MembershipNumber, _this.user._id, _this.user.shop_id[0]).then(function (customer) {
+                _this.api.Business.scan_qr(_this.createdCode.MembershipNumber, user._id, user.shop_id[0]).then(function (customer) {
                     _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__page_user_deals_page_user_deals__["a" /* UserDealsPage */], { business_id: user.shop_id[0], customer: customer }, {
                         animate: true,
                         direction: 'forward'
@@ -1299,10 +1299,9 @@ var ApiService = (function () {
 }());
 ApiService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
 ], ApiService);
 
-var _a;
 //# sourceMappingURL=api.service.component.js.map
 
 /***/ }),

@@ -91,7 +91,7 @@ export class UserScannerPage {
       // this.createdCode = barcodeData
       this.createdCode = JSON.parse(barcodeData.text)
       this.storage.get("user").then(user => {
-        this.api.Business.scan_qr(this.createdCode.MembershipNumber,this.user._id,this.user.shop_id[0]).then(customer =>{
+        this.api.Business.scan_qr(this.createdCode.MembershipNumber,user._id,user.shop_id[0]).then(customer =>{
         this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0], customer : customer}, {
               animate: true,
               direction: 'forward'
