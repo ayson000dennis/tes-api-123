@@ -1979,8 +1979,8 @@ MenuPage = __decorate([
 
 "use strict";
 var config = {
-    // baseUrl : 'https://warm-beach-10670.herokuapp.com/'
-    baseUrl: 'http://localhost:5015/'
+    baseUrl: 'https://warm-beach-10670.herokuapp.com/'
+    // baseUrl : 'http://localhost:5015/'
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
 //# sourceMappingURL=config.js.map
