@@ -22,6 +22,7 @@ import { UserFavoritesPage } from '../pages/page-user-favorites/page-user-favori
 import { UserDealsPage } from '../pages/page-user-deals/page-user-deals';
 import { UserDealsDetailsPage } from '../pages/page-user-deals-details/page-user-deals-details';
 import { UserCardPage } from '../pages/page-user-card/page-user-card';
+import { UserRedeemPage } from '../pages/page-user-redeem/page-user-redeem';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -51,7 +52,8 @@ import { IonicStorageModule } from '@ionic/storage';
     UserDealsPage,
     UserDealsDetailsPage,
     UserCardPage,
-    ListPage
+    ListPage,
+    UserRedeemPage
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { IonicStorageModule } from '@ionic/storage';
     UserDealsPage,
     UserDealsDetailsPage,
     UserCardPage,
-    ListPage
+    ListPage,
+    UserRedeemPage
   ],
   providers: [
     StatusBar,

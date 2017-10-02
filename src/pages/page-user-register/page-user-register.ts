@@ -50,15 +50,16 @@ export class UserRegisterPage {
         $('.btn-green[type="submit"]').append('<span class="fa fa-spinner fa-spin"></span>');
         this.storage.get('user').then(user => {
           this.user = user;
-          this.api.Business.register(this.phone, user._id, user.shop_id[0],getFName,getLName).then(newUser => {
+          this.api.Business.register(this.phone, user.shop_id[0],getFName,getLName).then(customer => {
             $('.btn-green[type="submit"]').find('.fa-spinner').remove();
-            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0]}, {
+            console.log(customer)
+            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
               animate: true,
               direction: 'forward'
             });
           }).catch(err => {
             $('.btn-green[type="submit"]').find('.fa-spinner').remove();
-            console.log(err);
+            // console.log(err);
           });
         });
       } else {

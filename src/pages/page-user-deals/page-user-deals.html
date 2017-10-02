@@ -25,16 +25,16 @@
     <div class="holder-deal" *ngFor="let deals of dealsList">
       <div class="deal-info">
         <p class="deal-title">
-          {{deals.template}}
+           {{deals.template}}
         </p>
         <p class="deal-stamp">
-          1 stamp
+          {{deals.stamp}} stamp
         </p>
         <p class="deal-expire">
           Expires {{dateFormat(deals.end_date)}}
         </p>
       </div>
-      <button class="btn btn-green">Redeem</button>
+      <button (click)="Redeem(deals)" class="btn btn-green">Redeem</button>
     </div>
   </div>
 </ion-content>

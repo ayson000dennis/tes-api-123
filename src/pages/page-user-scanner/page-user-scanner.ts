@@ -60,8 +60,9 @@ export class UserScannerPage {
 
         this.storage.get('user').then(user => {
           this.user = user;
-          this.api.Business.checker(this.phone, user._id, user.account_type).then(customer => {
+          this.api.Business.checker(this.phone, user._id).then(customer => {
             $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
+            
             this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
               animate: true,
               direction: 'forward'
