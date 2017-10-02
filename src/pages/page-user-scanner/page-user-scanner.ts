@@ -23,6 +23,7 @@ export class UserScannerPage {
   phone : any;
   hasData : boolean = false;
   business : string[];
+  message :  string
 
   constructor(
     public navCtrl: NavController,
@@ -59,7 +60,7 @@ export class UserScannerPage {
 
         this.storage.get('user').then(user => {
           this.user = user;
-          this.api.Business.checker(this.phone, user._id, user.account_type).then(business => {
+          this.api.Business.checker(this.phone, user._id, user.account_type).then(customer => {
             $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
             this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0]}, {
               animate: true,
@@ -89,6 +90,17 @@ export class UserScannerPage {
     this.barcodeScanner.scan().then(barcodeData => {
       // this.createdCode = barcodeData
       this.createdCode = JSON.parse(barcodeData.text)
+      this.storage.get("user").then(user => {
+        this.api.Business.scan_qr(this.createdCode.MembershipNumber,this.user._id,this.user.shop_id[0]).then(customer =>{
+        this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0], customer : customer}, {
+              animate: true,
+              direction: 'forward'
+            });
+      })
+      .catch(function(err){
+          this.message = 'Invalid membership code'
+      })
+      })
 
     });
   }

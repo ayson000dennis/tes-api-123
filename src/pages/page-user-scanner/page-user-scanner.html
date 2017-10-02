@@ -8,6 +8,7 @@
 
 <ion-content padding>
   <a class="btn btn-green" (click)="scanCode()">Scan QR Code</a>
+  <span>{{message}}</span>
   <div class="divider">
     <span>or</span>
   </div>
@@ -15,10 +16,9 @@
     <label>
       <input type="number" [(ngModel)]="phone" name="number" placeholder="Mobile number" />
       <span class="text-validate"></span>
+
     </label>
     <button class="btn btn-orange" (click)="SubmitNumber()" type="submit">Submit</button>
   </form>
-  <div *ngIf="createdCode">
-    {{createdCode.MembershipNumber}}
-  </div>
+ 
 </ion-content>

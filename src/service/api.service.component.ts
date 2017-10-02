@@ -29,6 +29,11 @@ export class ApiService {
       return this.http.post(Config.baseUrl + "api/business/send_sms/" + phone + "/" + userId + "/" + businessId, {first_name :first_name, last_name : last_name}).map(response => {
         return response.json();
       }).toPromise();
+    },
+    scan_qr : (MembershipNumber,userId,businessId) => {
+      return this.http.post(Config.baseUrl + "api/business/qr_scan/" + MembershipNumber + "/" + userId + "/" + businessId, {}).map(response => {
+        return response.json();
+      }).toPromise();
     }
   }
 
