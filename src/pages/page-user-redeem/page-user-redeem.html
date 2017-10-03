@@ -16,8 +16,8 @@
     <p class="title-deal"></p>
 		<form>
 			<label>
-        <!-- <ion-input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" autofocus></ion-input> -->
-        <input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}">
+        <ion-input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" autofocus value="1"></ion-input>
+        <!-- <input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" value="1"> -->
         <span class="text-validate"></span>
       </label>
 			<button id="btn-submit" (click)="Submit()" class="btn btn-green">Submit</button>
@@ -41,7 +41,7 @@
     <span class="fa fa-check"></span>
     CONGRATULATIONS<br />
     YOU'VE ADDED <span class="stamps-added"></span>.<br />
-    <span class="stamps-left"></span> LEFT TO CLAIM YOUR REWARD/S.
+    <span class="stamps-left"></span> LEFT TO CLAIM YOUR REWARD.
     <button class="btn btn-green" (click)="goScanner()">Complete</button>
   </div>
 </div>
