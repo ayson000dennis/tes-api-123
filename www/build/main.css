@@ -25549,7 +25549,7 @@ body form input {
   display: block;
   padding: 20px !important;
   margin: 0 !important;
-  width: 100%;
+  width: 100% !important;
   font-size: 24px;
   border: none;
   -webkit-transition: .2s ease;

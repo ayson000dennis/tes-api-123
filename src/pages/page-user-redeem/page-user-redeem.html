@@ -16,7 +16,8 @@
     <p class="title-deal"></p>
 		<form>
 			<label>
-        <ion-input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" autofocus></ion-input>
+        <!-- <ion-input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" autofocus></ion-input> -->
+        <input type="number" name="quantity" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}">
         <span class="text-validate"></span>
       </label>
 			<button id="btn-submit" (click)="Submit()" class="btn btn-green">Submit</button>

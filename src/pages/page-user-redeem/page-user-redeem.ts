@@ -36,9 +36,11 @@ export class UserRedeemPage {
     $('.title-deal').text(this.deal.template);
   }
 
-  // ionViewDidLoad() {
-  //   $('input[name="quantity"]').focus();
-  // }
+  ionViewDidLoad() {
+    setTimeout(function() {
+      $('input[name="quantity"]').focus();
+    },1000);
+  }
 
   showMenu() {
     this.navCtrl.push(MenuPage, {
