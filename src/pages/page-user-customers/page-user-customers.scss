@@ -218,20 +218,24 @@ page-user-customers {
       }
 
       .btn {
-        display: inline-block;
-        margin-top: 10vw;
-        width: 45%;
+        position: absolute;
+        bottom: 8vw;
+
+        width: 42%;
 
         &.btn-green:not(.btn-okay) {
-          float: left;
+          left: 5vw;
         }
 
         &.btn-gray {
-          float: right;
+          right: 5vw;
         }
 
         &.btn-okay {
-          margin: 10vw 20vw 0;
+          right: 0;
+          left: 0;
+
+          margin: auto;
         }
       }
     }

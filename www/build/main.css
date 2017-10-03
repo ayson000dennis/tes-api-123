@@ -26131,21 +26131,23 @@ page-user-customers .confirmation-modal .confirmation-modal-content .name {
 }
 
 page-user-customers .confirmation-modal .confirmation-modal-content .btn {
-  display: inline-block;
-  margin-top: 10vw;
-  width: 45%;
+  position: absolute;
+  bottom: 8vw;
+  width: 42%;
 }
 
 page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-green:not(.btn-okay) {
-  float: left;
+  left: 5vw;
 }
 
 page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-gray {
-  float: right;
+  right: 5vw;
 }
 
 page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-okay {
-  margin: 10vw 20vw 0;
+  right: 0;
+  left: 0;
+  margin: auto;
 }
 
 page-user-deals .scroll-content {
