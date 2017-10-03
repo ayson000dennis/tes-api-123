@@ -11,8 +11,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
+//chat
+import {Keyboard} from "@ionic-native/keyboard";
+import {DatabaseService} from '../providers/database.service';
+import {Sql} from '../providers/sql';
+import {SocketService} from '../providers/socket.service';
+import {KeyboardAttachDirective} from "../directives";
+
+
+
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [Keyboard,DatabaseService,Sql,SocketService]
 })
 
 export class MyApp {
@@ -28,7 +38,8 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public screenOrientation: ScreenOrientation
+    public screenOrientation: ScreenOrientation,
+    public keyboard:Keyboard
   ) {
     platform.ready().then(() => {
       this.screenOrientation.lock(screenOrientation.ORIENTATIONS.PORTRAIT);

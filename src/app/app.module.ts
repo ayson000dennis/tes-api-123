@@ -34,6 +34,14 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ApiService } from '../service/api.service.component';
 import { IonicStorageModule } from '@ionic/storage';
 
+//chat
+import { UserChatPage } from '../pages/page-user-chat/page-user-chat';
+import {DatabaseService, SocketService, Sql, UtilService} from "../providers";
+import {ElasticTextarea} from "../components/elasticTextarea";
+import {ChatBubble} from "../components/chatBubble";
+import {Keyboard} from "@ionic-native/keyboard";
+import {KeyboardAttachDirective} from "../directives";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -55,7 +63,11 @@ import { IonicStorageModule } from '@ionic/storage';
     UserCardPage,
     ListPage,
     UserRedeemPage,
-    UserAddCustomerPage
+    UserAddCustomerPage,
+    ElasticTextarea,
+    ChatBubble,
+    KeyboardAttachDirective,
+    UserChatPage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +97,10 @@ import { IonicStorageModule } from '@ionic/storage';
     UserCardPage,
     ListPage,
     UserRedeemPage,
-    UserAddCustomerPage
+    UserAddCustomerPage,
+    ElasticTextarea,
+    ChatBubble,
+    UserChatPage
   ],
   providers: [
     StatusBar,
@@ -95,7 +110,10 @@ import { IonicStorageModule } from '@ionic/storage';
     Facebook,
     GooglePlus,
     BarcodeScanner,
-    ApiService
+    ApiService,
+    DatabaseService,
+    SocketService,
+    UtilService
   ]
 })
 export class AppModule {}

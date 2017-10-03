@@ -25769,6 +25769,102 @@ body .confirmation-modal .confirmation-modal-content .btn.btn-okay {
   margin: auto;
 }
 
+chat-bubble .message {
+  font-size: medium;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 10px;
+}
+
+chat-bubble .message-detail {
+  white-space: nowrap;
+  font-size: 9px;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 2px;
+  color: #c5c1c1;
+}
+
+chat-bubble .chat-bubble {
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  padding: 8px;
+  margin: -10px 12px;
+  max-width: 50%;
+}
+
+chat-bubble .chat-bubble:before {
+  content: "\00a0";
+  display: block;
+  height: 13px;
+  width: 9px;
+  position: absolute;
+  bottom: -.5px;
+}
+
+chat-bubble .chat-bubble.left {
+  background-color: #E5E5EA;
+  color: black;
+  float: left;
+}
+
+chat-bubble .chat-bubble.right {
+  background-color: #A2C54F;
+  color: white;
+  float: right;
+}
+
+chat-bubble .chat-bubble.left:before {
+  background-color: #E5E5EA;
+  left: -4px;
+  top: 8px;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 50%;
+  -webkit-transform: rotate(70deg) skew(5deg);
+}
+
+chat-bubble .chat-bubble.right:before {
+  background-color: #A2C54F;
+  right: -4px;
+  top: 8px;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 100%;
+  -webkit-transform: rotate(118deg) skew(-5deg);
+}
+
+chat-bubble .message-detail.left {
+  left: 10px;
+}
+
+chat-bubble .message-detail.right {
+  right: 10px;
+}
+
+chat-bubble .chatPageFooter .toolbar-background {
+  background: white;
+}
+
+chat-bubble .chatPageFooter .toolbar {
+  padding: 4px 8px !important;
+}
+
+elastic-textarea .text-input {
+  margin: 6px 10px !important;
+  padding: 0;
+  width: calc(100% - 80px) !important;
+}
+
+elastic-textarea ion-textarea {
+  border: 1px solid #eceaea;
+  background-color: white;
+  font-style: italic;
+  font-size: 13px;
+  padding-top: 3px;
+  margin-top: 4px;
+  color: grey;
+}
+
 page-login form {
   padding-top: 6px;
 }
@@ -26000,6 +26096,58 @@ page-user-card .description {
 
 page-user-card .btn-green {
   margin-top: 50px;
+}
+
+page-user-chat ion-navbar {
+  border-bottom: 1px solid transparent;
+}
+
+page-user-chat ion-navbar .title {
+  font-size: 16px;
+  color: #565252;
+}
+
+page-user-chat ion-header + ion-content > div.scroll-content {
+  background-color: transparent !important;
+}
+
+page-user-chat #messages .list .item:first-child, page-user-chat #messages .list .item {
+  width: 100%;
+  text-align: left;
+}
+
+page-user-chat #messages ion-item {
+  height: 60px;
+  background-color: transparent;
+}
+
+page-user-chat ion-footer {
+  background-color: #F5F5F5;
+}
+
+page-user-chat ion-footer .item .item-textarea, page-user-chat ion-footer .item .item-block {
+  background-color: transparent;
+}
+
+page-user-chat ion-footer .item-md.item-block .item-inner {
+  padding-right: 0px !important;
+}
+
+page-user-chat ion-footer .bar-buttons {
+  position: absolute;
+  right: 17px;
+  top: 10px;
+}
+
+page-user-chat ion-footer .item-ios {
+  padding-left: 9px !important;
+  background-color: transparent;
+}
+
+page-user-chat ion-footer .bar-button {
+  color: grey;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 page-user-customers .title {
@@ -26389,6 +26537,90 @@ page-user-favorites .description {
 
 page-user-favorites .btn-green {
   margin-top: 50px;
+}
+
+page-user-inbox ion-header + ion-content > div.scroll-content {
+  padding: 0px !important;
+  background-color: transparent !important;
+}
+
+page-user-inbox #inbox-list .item:first-child {
+  text-align: left;
+}
+
+page-user-inbox #inbox-list .item-inner .label ion-icon {
+  float: right;
+  font-size: 28px;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
+page-user-inbox #inbox-list .item-inner .label {
+  font-size: 11px;
+  margin: 0 0 0 10px;
+}
+
+page-user-inbox #inbox-list .list .item {
+  margin-bottom: 3px;
+}
+
+page-user-inbox #inbox-list .item {
+  display: block;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px #d6d6d6 solid !important;
+  padding: 15px;
+}
+
+page-user-inbox #inbox-list p {
+  width: 200px;
+  overflow: hidden;
+  font-size: 13px;
+  text-transform: capitalize;
+  margin-top: 10px;
+  color: grey;
+}
+
+page-user-inbox #inbox-list .date-time {
+  font-size: 10px;
+  right: 13px;
+  float: right;
+  color: grey;
+}
+
+page-user-inbox #inbox-list .name {
+  font-size: 15px;
+  text-transform: capitalize;
+  color: grey;
+}
+
+page-user-inbox #inbox-list .date-time-new {
+  font-size: 10px;
+  right: 13px;
+  color: grey;
+  float: right;
+  color: black;
+}
+
+page-user-inbox #inbox-list .name-new {
+  font-size: 15px;
+  text-transform: capitalize;
+  color: black;
+}
+
+page-user-inbox #inbox-list .message-new {
+  color: black;
+}
+
+page-user-inbox #inbox-list #btn-message {
+  display: block;
+  float: right;
+  margin-right: 10px;
+  background-color: #A3C64F;
+}
+
+page-user-inbox #inbox-list #btn-message .button-inner {
+  display: inline;
 }
 
 page-user-redeem .title {
