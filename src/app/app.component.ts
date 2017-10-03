@@ -5,7 +5,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { SliderPage } from '../pages/page-slider/page-slider';
 import { UserScannerPage } from '../pages/page-user-scanner/page-user-scanner';
-import { UserDealsPage } from '../pages/page-user-deals/page-user-deals';
+import { UserCustomersPage } from '../pages/page-user-customers/page-user-customers';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +20,7 @@ export class MyApp {
 
   // make SliderPage the root (or first) page
   public rootPage: any = SliderPage;
-  // public rootPage: any = UserScannerPage;
+  // public rootPage: any = UserCustomersPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -37,9 +37,9 @@ export class MyApp {
     this.initializeApp();
 
     // set our app's pages
-    this.pages = [
-      { title: 'Scanner', component: UserScannerPage }
-    ];
+    // this.pages = [
+    //   { title: 'Scanner', component: UserScannerPage }
+    // ];
   }
 
   initializeApp() {
@@ -51,10 +51,10 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.menu.close();
-    // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
-  }
+  // openPage(page) {
+  //   // close the menu when clicking a link from the menu
+  //   this.menu.close();
+  //   // navigate to the new page if it is not the current page
+  //   this.nav.setRoot(page.component);
+  // }
 }
