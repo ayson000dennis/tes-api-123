@@ -4,9 +4,10 @@ import { NavController, NavParams } from 'ionic-angular';
 import { MenuPage } from '../page-menu/page-menu';
 import { UserRegisterPage } from '../page-user-register/page-user-register';
 import { UserDealsPage } from '../page-user-deals/page-user-deals';
-import { ApiService } from '../../service/api.service.component';
+import { UserInboxPage } from '../page-user-inbox/page-user-inbox';
 
 import * as $ from "jquery";
+import { ApiService } from '../../service/api.service.component';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Storage } from '@ionic/storage';
 
@@ -40,6 +41,13 @@ export class UserScannerPage {
     });
   }
 
+  goInbox() {
+    this.navCtrl.setRoot(UserInboxPage, {}, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
+
   ionViewWillEnter() {
     this.storage.get('user').then(user => {
       this.user = user;
@@ -62,7 +70,7 @@ export class UserScannerPage {
           this.user = user;
           this.api.Business.checker(this.phone, user._id).then(customer => {
             $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
-            
+
             this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
               animate: true,
               direction: 'forward'

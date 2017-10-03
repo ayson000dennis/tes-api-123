@@ -25547,7 +25547,8 @@ body form label .text-validate {
 
 body form input {
   display: block;
-  padding: 20px;
+  padding: 20px !important;
+  margin: 0 !important;
   width: 100%;
   font-size: 24px;
   border: none;
@@ -25588,12 +25589,12 @@ body form input.has-error ~ .text-validate {
   max-height: 16px;
 }
 
-body form input[type="email"], body form input[type="text"] {
-  font-family: "Raleway Medium";
+body form input[type="email"], body form input[type="text"], body form input[type="number"] {
+  font-family: 'Raleway Medium';
 }
 
 body form input[type="password"] {
-  padding: 17px 20px 15px;
+  padding: 17px 20px 15px !important;
   font-family: "Roboto";
   font-size: 30px;
   font-weight: 600;
@@ -25693,11 +25694,11 @@ body .holder-map img {
     padding-top: 0 !important;
   }
   body form input {
-    padding: 15px;
+    padding: 15px !important;
     font-size: 16px;
   }
   body form input[type="password"] {
-    padding: 14px 15px 11px;
+    padding: 14px 15px 11px !important;
     font-size: 20px;
   }
   body form label .btn-show {
@@ -25710,6 +25711,62 @@ body .holder-map img {
     top: 7px;
     font-size: 12px;
   }
+}
+
+body .confirmation-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: none;
+}
+
+body .confirmation-modal .confirmation-modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body .confirmation-modal .confirmation-modal-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8vw 5vw;
+  margin: auto;
+  width: 90vw;
+  height: 50vw;
+  font-size: 5vw;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+body .confirmation-modal .confirmation-modal-content .name {
+  color: #a4c73a;
+}
+
+body .confirmation-modal .confirmation-modal-content .btn {
+  position: absolute;
+  bottom: 8vw;
+  width: 42%;
+}
+
+body .confirmation-modal .confirmation-modal-content .btn.btn-green:not(.btn-okay) {
+  left: 5vw;
+}
+
+body .confirmation-modal .confirmation-modal-content .btn.btn-gray {
+  right: 5vw;
+}
+
+body .confirmation-modal .confirmation-modal-content .btn.btn-okay {
+  right: 0;
+  left: 0;
+  margin: auto;
 }
 
 page-login form {
@@ -25927,6 +25984,10 @@ page-slider .btn-slider {
   border: 1px solid #a4c73a;
 }
 
+page-user-add-customer .title {
+  text-align: left;
+}
+
 page-user-card .description {
   margin-top: 80px;
 }
@@ -25973,12 +26034,8 @@ page-user-customers .description input[name="entry"] {
 page-user-customers .loader {
   position: absolute;
   top: 30%;
-  right: 0;
-  left: 0;
-  margin: auto;
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
+  left: 45vw;
+  font-size: 11vw;
   color: #a4c73a;
 }
 
@@ -26092,62 +26149,6 @@ page-user-customers .holder-accordion .accordion-body > span.list-data ~ .list-d
 
 page-user-customers .holder-accordion .accordion-body > span.list-data .not-active {
   color: #ff6363;
-}
-
-page-user-customers .confirmation-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 15;
-  display: none;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-overlay {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 8vw 5vw;
-  margin: auto;
-  width: 90vw;
-  height: 50vw;
-  font-size: 5vw;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 3px;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content .name {
-  color: #a4c73a;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content .btn {
-  position: absolute;
-  bottom: 8vw;
-  width: 42%;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-green:not(.btn-okay) {
-  left: 5vw;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-gray {
-  right: 5vw;
-}
-
-page-user-customers .confirmation-modal .confirmation-modal-content .btn.btn-okay {
-  right: 0;
-  left: 0;
-  margin: auto;
 }
 
 page-user-deals .scroll-content {
@@ -26393,6 +26394,50 @@ page-user-favorites .btn-green {
 page-user-redeem .title {
   padding-left: 25px;
   text-align: left;
+}
+
+page-user-redeem .title-deal {
+  font-size: 22px;
+  color: #484848;
+  text-align: center;
+}
+
+page-user-redeem br {
+  display: block !important;
+}
+
+page-user-redeem .confirmation-modal .fa-check {
+  position: absolute;
+  top: -8.9375vw;
+  left: 50%;
+  padding: 3.503vw 0;
+  width: 17.875vw;
+  background: #a4c73a;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10vw;
+  -webkit-transform: translateX(-50%);
+  -mz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+page-user-redeem .confirmation-modal .confirmation-modal-content {
+  padding: 12vw 5vw;
+  width: 80vw;
+  height: 65vw;
+  font-family: 'Raleway Regular';
+  font-size: 4.5vw;
+  line-height: 6vw;
+  color: #686868;
+  text-transform: uppercase;
+}
+
+page-user-redeem .confirmation-modal .confirmation-modal-content .btn-green {
+  bottom: 5vw;
+  padding: 4vw 3vw !important;
+  width: 70vw;
+  font-size: 4vw;
 }
 
 page-user-register .title {

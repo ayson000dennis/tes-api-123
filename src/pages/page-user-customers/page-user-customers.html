@@ -2,7 +2,7 @@
   <ion-navbar>
     <img class="header-logo" src="assets/images/logo-min.png" alt="">
     <div class="holder-menu" (click)="showMenu()">Menu</div>
-    <a class="inbox"><img src="assets/images/icon-mail.png" alt="" /><span class="count-msg">1</span></a>
+    <a class="inbox" (click)="goInbox()"><img src="assets/images/icon-mail.png" alt="" /><span class="count-msg">1</span></a>
   </ion-navbar>
 </ion-header>
 
@@ -10,7 +10,7 @@
   <p class="title">
     <!-- <img class="btn-nav to-right" src="assets/icon/icon-close.png" alt="" (click)="goBack()"> -->
     Customers
-    <a class="btn btn-green" href="#">Add New</a>
+    <a class="btn btn-green" href="#" (click)="goAddUser()">Add New</a>
   </p>
   <p class="description">
     Show <input type="number" name="entry" value="10"/> entries

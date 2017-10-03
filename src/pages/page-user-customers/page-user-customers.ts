@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Http }  from '@angular/http'
 
 import { MenuPage } from '../page-menu/page-menu';
+import { UserInboxPage } from '../page-user-inbox/page-user-inbox';
+import { UserAddCustomerPage } from '../page-user-add-customer/page-user-add-customer';
 
 import * as $ from "jquery";
 import { Storage } from '@ionic/storage';
@@ -35,6 +37,13 @@ export class UserCustomersPage {
 
   showMenu() {
     this.navCtrl.push(MenuPage, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
+
+  goInbox() {
+    this.navCtrl.setRoot(UserInboxPage, {}, {
       animate: true,
       direction: 'forward'
     });
@@ -122,13 +131,14 @@ export class UserCustomersPage {
         this.hasData = true;
 
         $('body').find('.fa.loader').remove();
-        // for (var x = 0; x < this.customersList.length; x++) {
-        //   if (this.customersList[x].status == 0) {
-        //     console.log('true');
-        //     this.removeDeleteOpt(x);
-        //   }
-        // }
       })
+    });
+  }
+
+  goAddUser() {
+    this.navCtrl.push(UserAddCustomerPage, {}, {
+      animate: true,
+      direction: 'forward'
     });
   }
 

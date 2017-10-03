@@ -26,6 +26,11 @@ export class ApiService {
       return this.http.post(Config.baseUrl + "api/users/edit/" + userId, {status: '2'}).map(response => {
           return response.json();
       }).toPromise();
+    },
+    user_add: (firstName: string, lastName: string, phone: string, email: string, password: string, ownerId: string) => {
+      return this.http.post(Config.baseUrl + "api/users/add/", {first_name: firstName, last_name: lastName, number: phone, email: email, password: password, permission: '3', account_type: '1', status: '1', owner_id: ownerId}).map(response => {
+          return response.json();
+      }).toPromise();
     }
   }
 

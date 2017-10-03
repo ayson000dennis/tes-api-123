@@ -4,6 +4,7 @@ import { ApiService } from '../../service/api.service.component';
 
 import { UserScannerPage } from '../page-user-scanner/page-user-scanner';
 import { UserDealsPage } from '../page-user-deals/page-user-deals';
+import { UserInboxPage } from '../page-user-inbox/page-user-inbox';
 
 import * as $ from "jquery";
 import { Storage } from '@ionic/storage';
@@ -36,6 +37,13 @@ export class UserRegisterPage {
     this.navCtrl.setRoot(UserScannerPage, {}, {
       animate: true,
       direction: 'back'
+    });
+  }
+
+  goInbox() {
+    this.navCtrl.setRoot(UserInboxPage, {}, {
+      animate: true,
+      direction: 'forward'
     });
   }
 
