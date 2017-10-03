@@ -61,6 +61,7 @@ export class UserDealsPage {
       return format;
     }
   }
+  
   Redeem(deal){
     console.log(this.customer.customer.user_id[0])
     this.navCtrl.push(UserRedeemPage,{

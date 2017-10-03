@@ -24,6 +24,7 @@ export class UserRedeemPage {
     public navParams : NavParams,
     private api:ApiService) {
   }
+
   ionViewWillEnter (){
       this.business_id = this.navParams.get('business_id');
       this.customer_id = this.navParams.get('customer_id');
@@ -31,12 +32,21 @@ export class UserRedeemPage {
       this.hasData = true;
     console.log(this.deal)
   }
+
   showMenu() {
     this.navCtrl.push(MenuPage, {
       animate: true,
       direction: 'forward'
     });
   }
+
+  goBack() {
+    this.navCtrl.pop({
+      animate: true,
+      direction: 'back'
+    });
+  }
+
   Submit(){
     console.log(this.customer_id)
     this.api.Loyalty.loyalty_add(this.quantity,this.business_id,this.deal._id,this.customer_id)
