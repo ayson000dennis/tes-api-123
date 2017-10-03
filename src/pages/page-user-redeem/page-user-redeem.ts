@@ -37,9 +37,9 @@ export class UserRedeemPage {
   }
 
   ionViewDidLoad() {
-    // setTimeout(function() {
-    //   $('input[name="quantity"]').focus();
-    // },1000);
+    setTimeout(function() {
+      $('input[name="quantity"]').focus();
+    },150);
   }
 
   showMenu() {

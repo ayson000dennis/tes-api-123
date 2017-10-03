@@ -1297,9 +1297,9 @@ var UserRedeemPage = (function () {
         __WEBPACK_IMPORTED_MODULE_5_jquery__('.title-deal').text(this.deal.template);
     };
     UserRedeemPage.prototype.ionViewDidLoad = function () {
-        // setTimeout(function() {
-        //   $('input[name="quantity"]').focus();
-        // },1000);
+        setTimeout(function () {
+            __WEBPACK_IMPORTED_MODULE_5_jquery__('input[name="quantity"]').focus();
+        }, 150);
     };
     UserRedeemPage.prototype.showMenu = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__page_menu_page_menu__["a" /* MenuPage */], {
