@@ -15,6 +15,7 @@
   <p class="description">
     Show <input type="number" name="entry" value="10"/> entries
   </p>
+  <span class="fa fa-spinner fa-spin loader"></span>
   <div class="holder-list" *ngIf="hasData">
     <div class="holder-accordion" *ngFor="let customer of customersList">
       <span class="dropdown" (click)="showDropdown($event)">

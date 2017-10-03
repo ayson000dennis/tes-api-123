@@ -121,6 +121,7 @@ export class UserCustomersPage {
         this.customersList = users;
         this.hasData = true;
 
+        $('body').find('.fa.loader').remove();
         // for (var x = 0; x < this.customersList.length; x++) {
         //   if (this.customersList[x].status == 0) {
         //     console.log('true');

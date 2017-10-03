@@ -25970,6 +25970,18 @@ page-user-customers .description input[name="entry"] {
   text-align: center;
 }
 
+page-user-customers .loader {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
+  color: #a4c73a;
+}
+
 page-user-customers .holder-accordion {
   position: relative;
 }
@@ -26055,30 +26067,30 @@ page-user-customers .holder-accordion .accordion-body {
   transition: .2s ease-in-out;
 }
 
-page-user-customers .holder-accordion .accordion-body span {
+page-user-customers .holder-accordion .accordion-body > span {
   display: inline-block;
   width: 50%;
   vertical-align: top;
 }
 
-page-user-customers .holder-accordion .accordion-body span.list-label {
+page-user-customers .holder-accordion .accordion-body > span.list-label {
   color: #7a7a7a;
 }
 
-page-user-customers .holder-accordion .accordion-body span.list-label ~ .list-label {
+page-user-customers .holder-accordion .accordion-body > span.list-label ~ .list-label {
   margin-top: 5px;
 }
 
-page-user-customers .holder-accordion .accordion-body span.list-data {
+page-user-customers .holder-accordion .accordion-body > span.list-data {
   font-family: 'Raleway Semibold';
   color: #444;
 }
 
-page-user-customers .holder-accordion .accordion-body span.list-data ~ .list-data {
+page-user-customers .holder-accordion .accordion-body > span.list-data ~ .list-data {
   margin-top: 5px;
 }
 
-page-user-customers .holder-accordion .accordion-body span.list-data .not-active {
+page-user-customers .holder-accordion .accordion-body > span.list-data .not-active {
   color: #ff6363;
 }
 
