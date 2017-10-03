@@ -12,8 +12,10 @@
    	{{deal.template}}
   </p>
   <div>
-  		<input type="number" [(ngModel)]="quantity">
-  		<button (click)="Submit()" class="btn btn-green">Submit</button>
+  		<form>
+  			<label><input type="number" placeholder="Enter Quantity" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}"></label>
+  			<button (click)="Submit()" class="btn btn-green">Submit</button>
+  		</form>
   	</div>
 
 </ion-content>
