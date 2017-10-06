@@ -28,13 +28,25 @@
            {{deals.template}}
         </p>
         <p class="deal-stamp">
-          {{deals.stamp}} of {{deals.buy_pcs}}
+          <span *ngIf="deals.is_stamp == '1'">{{deals.stamp}} of {{deals.buy_pcs}}</span>
         </p>
         <p class="deal-expire">
           Expires {{dateFormat(deals.end_date)}}
         </p>
       </div>
-      <button (click)="Redeem(deals)" class="btn btn-green">Stamp</button>
+      <button (click)="Stamp(deals)" class="btn btn-green" *ngIf="deals.is_stamp == '1'">Stamp</button>
+      <button (click)="Redeem(deals, $event)" class="btn btn-green btn-redeem" *ngIf="deals.is_stamp == '0'">Redeem</button>
     </div>
   </div>
 </ion-content>
+
+<div id="redeem-modal" class="confirmation-modal">
+  <div class="confirmation-modal-overlay"></div>
+  <div class="confirmation-modal-content">
+    <span class="fa fa-check"></span>
+    DONE<br />
+    YOUR TOTAL CHECK-INS: <span class="checkins-count"></span><br />
+    THANK YOU! <span class="customer-name"></span>
+    <button class="btn btn-green" (click)="goScanner()">Complete</button>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { Http }  from '@angular/http'
 import { MenuPage } from '../page-menu/page-menu';
 import { UserInboxPage } from '../page-user-inbox/page-user-inbox';
 import { UserAddCustomerPage } from '../page-user-add-customer/page-user-add-customer';
+import { UserEditCustomerPage } from '../page-user-edit-customer/page-user-edit-customer';
 
 import * as $ from "jquery";
 import { Storage } from '@ionic/storage';
@@ -142,7 +143,12 @@ export class UserCustomersPage {
     });
   }
 
-  // removeDeleteOpt(index) {
-  //   $('.holder-accordion').eq(index).find('.dropdown-menu').find('li:last-child').remove();
-  // }
+  goEditUser() {
+    var thisCustomer = this.customerId;
+    
+    this.navCtrl.push(UserEditCustomerPage, {thisCustomer}, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
 }

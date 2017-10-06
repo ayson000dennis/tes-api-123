@@ -7,5 +7,14 @@ page-user-register {
 
   form {
     padding-top: 15px !important;
+
+    .btn {
+      display: inline-block;
+      width: 45%;
+
+      &:last-child {
+        float: right;
+      }
+    }
   }
 }

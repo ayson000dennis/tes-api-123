@@ -59,7 +59,6 @@ export class UserScannerPage {
     var mobileRegex = /^[0-9]{3,14}$/;
 
     if (this.phone) {
-      console.log(mobileRegex.test(this.phone));
       if (mobileRegex.test(this.phone) == true) {
         this.phone = "+" + this.phone;
 
@@ -69,21 +68,40 @@ export class UserScannerPage {
         this.storage.get('user').then(user => {
           this.user = user;
           this.api.Business.checker(this.phone, user._id).then(customer => {
-            $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
 
-            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
-              animate: true,
-              direction: 'forward'
+            this.api.Users.user(customer.customer.user_id[0]).then(thisCustomer => {
+              $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
+              if (thisCustomer.first_name == ' ' && thisCustomer.last_name == ' ') {
+                this.navCtrl.setRoot(UserRegisterPage, {customer : customer}, {
+                  animate: true,
+                  direction: 'forward'
+                });
+              } else {
+                this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer.customer.user_id[0]}, {
+                  animate: true,
+                  direction: 'forward'
+                });
+              }
             });
           }).catch(err => {
-            $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
             var exist = JSON.parse(err['_body']).exist;
-
             if (exist == 0) {
-              this.navCtrl.setRoot(UserRegisterPage, {phone : this.phone}, {
-                animate: true,
-                direction: 'forward'
+              var getFName = ' ',
+                  getLName = ' ';
+
+              this.api.Business.register(this.phone, user.shop_id[0],getFName,getLName).then(customer => {
+
+                $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
+                this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer.customer.user_id[0]}, {
+                  animate: true,
+                  direction: 'forward'
+                });
+              }).catch(err => {
+                $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
+                console.log(err);
               });
+            } else {
+              $('.btn-orange[type="submit"]').find('.fa-spinner').remove();
             }
           });
         });

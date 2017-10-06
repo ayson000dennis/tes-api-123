@@ -31,6 +31,16 @@ export class ApiService {
       return this.http.post(Config.baseUrl + "api/users/add/", {first_name: firstName, last_name: lastName, number: phone, email: email, password: password, permission: '3', account_type: '1', status: '1', owner_id: ownerId}).map(response => {
           return response.json();
       }).toPromise();
+    },
+    user_name: (firstName: string, lastName: string, customerId: string) => {
+      return this.http.post(Config.baseUrl + "api/users/edit/" + customerId, {first_name: firstName, last_name: lastName}).map(response => {
+          return response.json();
+      }).toPromise();
+    },
+    user_edit: (firstName: string, lastName: string, phone: string, email: string, customerId: string) => {
+      return this.http.post(Config.baseUrl + "api/users/edit/" + customerId, {first_name: firstName, last_name: lastName, number: phone, email: email}).map(response => {
+          return response.json();
+      }).toPromise();
     }
   }
 
@@ -66,11 +76,12 @@ export class ApiService {
         return response.json();
       }).toPromise();
     },
-    loyalty_add : (quantity : string,businessId : string,dealId : string,customerId : string) => {
+    loyalty_add : (quantity : string,businessId : string,dealId : string,customerId : string, isStamp: string) => {
       return this.http.post(Config.baseUrl + "api/loyalties/add/" + quantity,{
         business_id : businessId,
         customer_id : customerId,
-        deals_id : dealId
+        deals_id : dealId,
+        isStamp : isStamp
       }).map(response => {
         return response.json();
       }).toPromise();

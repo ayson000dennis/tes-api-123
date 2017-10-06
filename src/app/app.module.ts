@@ -13,18 +13,14 @@ import { ResetPassSuccessPage } from '../pages/page-reset-pass-success/page-rese
 import { SignupPage } from '../pages/page-signup/page-signup';
 import { SignupSuccessPage } from '../pages/page-signup-success/page-signup-success';
 import { MenuPage } from '../pages/page-menu/page-menu';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { UserScannerPage } from '../pages/page-user-scanner/page-user-scanner';
 import { UserRegisterPage } from '../pages/page-user-register/page-user-register';
 import { UserCustomersPage } from '../pages/page-user-customers/page-user-customers';
 import { UserInboxPage } from '../pages/page-user-inbox/page-user-inbox';
-import { UserFavoritesPage } from '../pages/page-user-favorites/page-user-favorites';
 import { UserDealsPage } from '../pages/page-user-deals/page-user-deals';
-import { UserDealsDetailsPage } from '../pages/page-user-deals-details/page-user-deals-details';
-import { UserCardPage } from '../pages/page-user-card/page-user-card';
 import { UserRedeemPage } from '../pages/page-user-redeem/page-user-redeem';
 import { UserAddCustomerPage } from '../pages/page-user-add-customer/page-user-add-customer';
-import { ListPage } from '../pages/list/list';
+import { UserEditCustomerPage } from '../pages/page-user-edit-customer/page-user-edit-customer';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,18 +48,14 @@ import {KeyboardAttachDirective} from "../directives";
     SignupPage,
     SignupSuccessPage,
     MenuPage,
-    ItemDetailsPage,
     UserScannerPage,
     UserRegisterPage,
     UserCustomersPage,
     UserInboxPage,
-    UserFavoritesPage,
     UserDealsPage,
-    UserDealsDetailsPage,
-    UserCardPage,
-    ListPage,
     UserRedeemPage,
     UserAddCustomerPage,
+    UserEditCustomerPage,
     ElasticTextarea,
     ChatBubble,
     KeyboardAttachDirective,
@@ -86,18 +78,14 @@ import {KeyboardAttachDirective} from "../directives";
     SignupPage,
     SignupSuccessPage,
     MenuPage,
-    ItemDetailsPage,
     UserScannerPage,
     UserRegisterPage,
     UserCustomersPage,
     UserInboxPage,
-    UserFavoritesPage,
     UserDealsPage,
-    UserDealsDetailsPage,
-    UserCardPage,
-    ListPage,
     UserRedeemPage,
     UserAddCustomerPage,
+    UserEditCustomerPage,
     ElasticTextarea,
     ChatBubble,
     UserChatPage

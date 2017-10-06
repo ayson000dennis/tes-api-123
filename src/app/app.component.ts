@@ -11,14 +11,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
-//chat
-import {Keyboard} from "@ionic-native/keyboard";
-import {DatabaseService} from '../providers/database.service';
-import {Sql} from '../providers/sql';
-import {SocketService} from '../providers/socket.service';
-import {KeyboardAttachDirective} from "../directives";
-
-
+//Chat Imports
+import { Keyboard } from "@ionic-native/keyboard";
+import { DatabaseService } from '../providers/database.service';
+import { Sql } from '../providers/sql';
+import { SocketService } from '../providers/socket.service';
+import { KeyboardAttachDirective } from "../directives";
 
 @Component({
   templateUrl: 'app.html',
@@ -29,8 +27,8 @@ export class MyApp {
   @ViewChild('nav') nav: NavController;
 
   // make SliderPage the root (or first) page
+  // public rootPage: any = SliderPage;
   public rootPage: any = SliderPage;
-  // public rootPage: any = UserCustomersPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -46,11 +44,6 @@ export class MyApp {
     });
 
     this.initializeApp();
-
-    // set our app's pages
-    // this.pages = [
-    //   { title: 'Scanner', component: UserScannerPage }
-    // ];
   }
 
   initializeApp() {
@@ -61,11 +54,4 @@ export class MyApp {
       this.splashScreen.hide();
     });
   }
-
-  // openPage(page) {
-  //   // close the menu when clicking a link from the menu
-  //   this.menu.close();
-  //   // navigate to the new page if it is not the current page
-  //   this.nav.setRoot(page.component);
-  // }
 }

@@ -18,7 +18,7 @@ import Config from '../../app/config';
 
 export class UserRegisterPage {
   user : string[];
-  phone: any;
+  customer: any;
   posts: {first_name: string, last_name: string} = {
     first_name : '',
     last_name : ''
@@ -30,7 +30,7 @@ export class UserRegisterPage {
     private api:ApiService,
     private storage: Storage) {
 
-      this.phone = navParams.get('phone');
+      this.customer = navParams.get('customer');
   }
 
   goScanner() {
@@ -47,28 +47,51 @@ export class UserRegisterPage {
     });
   }
 
+  skipMe() {
+    this.storage.get('user').then(user => {
+      this.user = user;
+
+      this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0], customer: this.customer.customer.user_id[0]}, {
+        animate: true,
+        direction: 'forward'
+      });
+    });
+  }
+
   registerMe() {
     var getFName = this.posts.first_name,
       getLName = this.posts.last_name,
       nameRegEx = /^(([A-Za-z]+[\-\']?)*([A-Za-z\s]+)?)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/;
 
     if (getFName && getLName) {
+      var self = this;
+
       if (nameRegEx.test(getFName) == true && nameRegEx.test(getLName) == true) {
         $('form input').removeClass('has-error').siblings('.text-validate').text('');
         $('.btn-green[type="submit"]').append('<span class="fa fa-spinner fa-spin"></span>');
         this.storage.get('user').then(user => {
           this.user = user;
-          this.api.Business.register(this.phone, user.shop_id[0],getFName,getLName).then(customer => {
+
+          this.api.Users.user_name(this.posts.first_name, this.posts.last_name, this.customer.customer.user_id[0]).then(res => {
             $('.btn-green[type="submit"]').find('.fa-spinner').remove();
-            console.log(customer)
-            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
+
+            this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : this.customer.customer.user_id[0]}, {
               animate: true,
               direction: 'forward'
             });
-          }).catch(err => {
-            $('.btn-green[type="submit"]').find('.fa-spinner').remove();
-            // console.log(err);
           });
+
+          // this.api.Business.register(this.phone, user.shop_id[0],getFName,getLName).then(customer => {
+          //   $('.btn-green[type="submit"]').find('.fa-spinner').remove();
+          //   console.log(customer)
+          //   this.navCtrl.setRoot(UserDealsPage, {business_id: user.shop_id[0],customer : customer}, {
+          //     animate: true,
+          //     direction: 'forward'
+          //   });
+          // }).catch(err => {
+          //   $('.btn-green[type="submit"]').find('.fa-spinner').remove();
+          //   console.log(err);
+          // });
         });
       } else {
         $('form input').each(function () {
