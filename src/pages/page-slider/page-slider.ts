@@ -32,7 +32,7 @@ export class SliderPage {
 
   onSlideNext(slider) {
     if (slider.isEnd()) {
-      $('.btn-green').trigger('click');
+      $('.btn-green-out').trigger('click');
     }
   }
 }

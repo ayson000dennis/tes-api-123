@@ -2,17 +2,18 @@
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
+
     </button>
     <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header> -->
 <ion-content padding>
-  <ion-card *ngIf="userData">
+  <!-- <ion-card *ngIf="userData">
     <ion-card-header>{{ userData.email }}</ion-card-header>
-  </ion-card>
+  </ion-card> -->
 
   <p class="title">
-    <img class="btn-nav to-right" src="assets/icon/icon-close.png" alt="" (click)="goSignup()">
+    <img class="btn-nav to-right" src="assets/icon/icon-close.png" alt="" (click)="goSlider()">
     Welcome Back
   </p>
   <button class="btn login-fb" (click)="fbConnect()"><span class="fa fa-facebook"></span> Continue with Facebook</button>
@@ -26,6 +27,6 @@
     <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>
   </form>
   <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>
-  <hr class="hr" />
-  <p class="description">Don't have an account? <a href="#" (click)="goSignup()">Sign Up</a></p>
+  <!-- <hr class="hr" />
+  <p class="description">Don't have an account? <a href="#" (click)="goSignup()">Sign Up</a></p> -->
 </ion-content>

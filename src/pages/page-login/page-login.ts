@@ -4,6 +4,7 @@ import { Http }  from '@angular/http';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { GooglePlus } from '@ionic-native/google-plus';
 
+import { SliderPage } from '../page-slider/page-slider';
 import { SignupPage } from '../page-signup/page-signup';
 import { ResetPassPage } from '../page-reset-pass/page-reset-pass';
 import { UserScannerPage } from '../page-user-scanner/page-user-scanner';
@@ -34,6 +35,13 @@ export class LoginPage {
     private gp: GooglePlus,
     private storage: Storage,
     private api:ApiService) {
+  }
+
+  goSlider() {
+    this.navCtrl.setRoot(SliderPage, {}, {
+      animate: true,
+      direction: 'back'
+    });
   }
 
   goSignup() {
@@ -122,6 +130,7 @@ export class LoginPage {
       });
     }
   }
+
   getUser(token){
    this.api.Users.user(token.user_id).then(user =>{
       this.storage.set('user', user);
