@@ -92,7 +92,9 @@ export class UserEditCustomerPage {
               direction: 'back'
             });
           }, 5250);
-        });
+        }).catch(err => {
+          console.log(err)
+        })
       } else {
         $('#edit-form').find('input').each(function() {
           var thisVal = $(this).val(),

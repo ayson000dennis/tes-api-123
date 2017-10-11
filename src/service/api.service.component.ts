@@ -12,8 +12,8 @@ export class ApiService {
           return response.json();
       }).toPromise();
     },
-    user_list: (userId : string, permission : string, account_type : string) =>{
-      return this.http.get(Config.baseUrl + "api/users/list2/" + userId + "/" + permission + "?account_type=" + account_type).map(response => {
+    user_list: (userId : string, permission : string, account_type : string, page_size : string) =>{
+      return this.http.get(Config.baseUrl + "api/users/list2/" + userId + "/" + permission + "?account_type=" + account_type + "&page=1&page_size=" + page_size).map(response => {
         return response.json();
       }).toPromise();
     },
@@ -23,7 +23,7 @@ export class ApiService {
       }).toPromise();
     },
     user_suspend: (userId: string) => {
-      return this.http.post(Config.baseUrl + "api/users/edit/" + userId, {status: '2'}).map(response => {
+      return this.http.post(Config.baseUrl + "api/users/suspend/" + userId, {}).map(response => {
           return response.json();
       }).toPromise();
     },
@@ -83,6 +83,13 @@ export class ApiService {
         deals_id : dealId,
         isStamp : isStamp
       }).map(response => {
+        return response.json();
+      }).toPromise();
+    }
+  }
+  BusinessOwner = {
+    list : (businessId : string, page: string, page_size: string) => {
+      return this.http.get(Config.baseUrl + "api/business_owners/customer/list/" + businessId + "/?page=" + page + "&page_size=" + page_size).map(response => {
         return response.json();
       }).toPromise();
     }
